@@ -1,4 +1,4 @@
-name: release
+﻿name: release
 
 # 说明:本仓库的插件是**在开发者机器上用 MSVC 构建的二进制**,这里不重新编译(没有 MSVC 环境),
 # 只做三件事:①检查包内没有禁品 ②校验哈希 ③把 release/ 打成 zip 并附到 Release。
@@ -38,17 +38,17 @@ jobs:
         shell: pwsh
         run: |
           $v = (Get-Content VERSION -Raw).Trim()
-          Compress-Archive -Path release/* -DestinationPath "FrameWarp-RouteA-$v.zip" -Force
-          Get-Item "FrameWarp-RouteA-$v.zip" | Format-List Name,Length
+          Compress-Archive -Path release/* -DestinationPath "Reflex2-$v.zip" -Force
+          Get-Item "Reflex2-$v.zip" | Format-List Name,Length
 
       - uses: actions/upload-artifact@v4
         with:
-          name: FrameWarp-RouteA-package
-          path: FrameWarp-RouteA-*.zip
+          name: Reflex2-package
+          path: Reflex2-*.zip
 
       - name: 附加到 GitHub Release(仅 tag)
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          files: FrameWarp-RouteA-*.zip
+          files: Reflex2-*.zip
           body_path: release/RELEASE_NOTES_0.9.0-rc1.md

@@ -1,4 +1,4 @@
-# Frame Warp (Route A) — Frame Warp for Cyberpunk 2077 via NVIDIA latewarp
+﻿# Reflex2 — Frame Warp for Cyberpunk 2077 via NVIDIA latewarp
 
 [中文说明](README_CN.md)
 
@@ -48,7 +48,7 @@ hashes afterwards. Uninstall with `.\install.ps1 -Uninstall`.
 | Swap-chain generation | grows by one on every resolution / fullscreen / HDR change |
 | Kernel warps | **rising = NVIDIA's kernel is really warping this session** |
 
-3. To disable the warp temporarily, untick **"Route A: frame warp"** in `routea_switch.fx`.
+3. To disable the warp temporarily, untick **"Reflex2: frame warp"** in `routea_switch.fx`.
    Unticking it now makes the add-on a pure pass-through (no evaluation, no copies, no captures).
 
 ## Requirements
@@ -102,7 +102,7 @@ Not affiliated with CD PROJEKT RED, NVIDIA or the ReShade project.
 
 ## 变更:路径选项已移除(2026-09-25,用户决定)
 
-`Route A: which path`(UI first / Light first)这个组合框**已从项目里删除**:
+`Reflex2: which path`(UI first / Light first)这个组合框**已从项目里删除**:
 
 * 插件现在**只有一条路径** —— LDR 扭曲(改扭显示就绪的帧,再拷进后缓冲),也就是实测通过的那条;
 * `routea_switch.fx` 里只剩**一个**控件:总开关;

@@ -1,4 +1,4 @@
-// routea_ui_panel.fx -- Route A 的遮罩控件,放在 ReShade 自己的面板里。
+﻿// routea_ui_panel.fx -- Reflex2 的遮罩控件,放在 ReShade 自己的面板里。
 //
 // 说明:这个 pass 是**纯直通**(采样 ReShade 自己的 back buffer 原样返回),不声明任何 ROUTEA
 // 语义、不碰插件的纹理;勾上它也不会改变画面。若 ReShade 显示中文是方块,请在
@@ -82,7 +82,7 @@ float4 RouteAUiPanelPS(float4 pos : SV_Position, float2 uv : TEXCOORD0) : SV_Tar
 }
 
 technique RouteAUiMaskPanel <
-    ui_label = "Route A:UI 遮罩面板(不要勾选)";
+    ui_label = "Reflex2:UI 遮罩面板(不要勾选)";
     ui_tooltip = "只是为了 ReShade 列出上面的滑块;这个 pass 是空操作。";
 >
 {

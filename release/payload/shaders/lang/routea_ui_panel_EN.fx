@@ -1,4 +1,4 @@
-// routea_ui_panel.fx  (English edition) -- Route A controls, inside ReShade's own panel.
+﻿// routea_ui_panel.fx  (English edition) -- Reflex2 controls, inside ReShade's own panel.
 //
 // This pass is a PURE PASS-THROUGH (it samples ReShade's back buffer and returns it unchanged):
 // it declares no ROUTEA semantic and never touches the add-on's textures, so enabling it cannot
@@ -80,7 +80,7 @@ float4 RouteAUiPanelPS(float4 pos : SV_Position, float2 uv : TEXCOORD0) : SV_Tar
 }
 
 technique RouteAUiMaskPanel <
-    ui_label = "Route A: UI mask panel (do not untick)";
+    ui_label = "Reflex2: UI mask panel (do not untick)";
     ui_tooltip = "Only exists so ReShade lists the sliders above; this pass is a no-op.";
 >
 {

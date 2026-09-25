@@ -1,4 +1,4 @@
-# Frame Warp(Route A)—— 中文说明
+﻿# Frame Warp(Reflex2)—— 中文说明
 
 > ## ⚠️ 最重要的一条(只用记这一条)
 > **改完分辨率,不要直接回存档。**
@@ -65,7 +65,7 @@
 | **深度反向** | 深度约定反了的时候打开 | 开 |
 | **显示遮罩** | 调试用:直接看"哪些像素被当成 UI" | 关 |
 
-3. 想临时关掉扭曲又不开面板:把 `routea_switch.fx` 的 **“Route A: 帧扭曲”** 勾去掉(效果不变红即关闭)。
+3. 想临时关掉扭曲又不开面板:把 `routea_switch.fx` 的 **“Reflex2: 帧扭曲”** 勾去掉(效果不变红即关闭)。
 
 ### 3.1 怎么确认“扭曲真的在工作” + 分辨率切换的正确做法
 
@@ -141,7 +141,7 @@ python _re\routeA\fg\lookup_rva.py --pe bin\x64\routea_warp.addon64 --map <发�
 
 ## 变更:路径选项已移除(2026-09-25,用户决定)
 
-`Route A: which path`(UI first / Light first)这个组合框**已从项目里删除**:
+`Reflex2: which path`(UI first / Light first)这个组合框**已从项目里删除**:
 
 * 插件现在**只有一条路径** —— LDR 扭曲(改扭显示就绪的帧,再拷进后缓冲),也就是实测通过的那条;
 * `routea_switch.fx` 里只剩**一个**控件:总开关;
