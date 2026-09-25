@@ -139,7 +139,7 @@ python _re\routeA\fg\lookup_rva.py --pe bin\x64\routea_warp.addon64 --map <发�
 
 ---
 
-## 变更:路径选项已移除(2026-09-25,用户决定)
+## 变更:路径选项已移除(2026-09-25)
 
 `Reflex2: which path`(UI first / Light first)这个组合框**已从项目里删除**:
 
