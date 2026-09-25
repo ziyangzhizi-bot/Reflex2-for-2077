@@ -102,13 +102,13 @@ Not affiliated with CD PROJEKT RED, NVIDIA or the ReShade project.
 
 ## 变更:路径选项已移除(2026-09-25,用户决定)
 
-`Reflex2: which path`(UI first / Light first)这个组合框**已从项目里删除**:
+`Reflex2: which path`(UI first / Light first)这个组合框已从项目里删除:
 
-* 插件现在**只有一条路径** —— LDR 扭曲(改扭显示就绪的帧,再拷进后缓冲),也就是实测通过的那条;
+* 插件现在只有一条路径 —— LDR 扭曲(改扭显示就绪的帧,再拷进后缓冲),也就是实测通过的那条;
 * `routea_switch.fx` 里只剩**一个**控件:总开关;
 * 原因:UI first 依赖"游戏把自有帧交给内核"(原地改写)这条通道,而当前游戏/驱动不再提供它
   (`Latewarp.Output ret=0xFFFFFFFF`、`GAMETEX bound=0`),留下这个选项只会让人选了之后什么都看不到;
 * 代码里那条分支现在永远不会被置位(`g_uiFirstPath` 恒为 0),不存在两条路同时生效的可能。
 
-延迟说明(如实):这条路径的源帧是**上一帧的显示就绪拷贝**,所以画面比输入**晚一帧**;
+延迟说明(如实):这条路径的源帧是上一帧的显示就绪拷贝,所以画面比输入晚一帧;
 亮部保留(HDR 不被钳制),HUD 会跟着一起被扭(面板块 [1] 阈值可调保护程度)。
