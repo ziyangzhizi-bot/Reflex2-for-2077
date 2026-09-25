@@ -1,7 +1,7 @@
 ﻿# make_release.ps1 -- 打出可分发的发布包(zip)
 #
 # 用法:
-#   .\make_release.ps1                 # 打包到 .\_dist\FrameWarp-RouteA-<版本>.zip
+#   .\make_release.ps1                 # 打包到 .\_dist\Reflex2-<版本>.zip
 #   .\make_release.ps1 -NoZip          # 只生成目录,不压缩
 #   .\make_release.ps1 -OutDir D:\out  # 指定输出目录
 #
@@ -22,7 +22,7 @@ if (-not $OutDir) { $OutDir = Join-Path $Root '_dist' }
 
 $version = (Get-Content (Join-Path $Root 'VERSION') -Raw).Trim()
 if (-not $version) { throw 'VERSION 文件缺失或为空' }
-$stage = Join-Path $OutDir ("FrameWarp-RouteA-$version")
+$stage = Join-Path $OutDir ("Reflex2-$version")
 if (Test-Path $stage) { Remove-Item $stage -Recurse -Force }
 New-Item -ItemType Directory -Force -Path $stage | Out-Null
 
@@ -51,7 +51,7 @@ $dll = Join-Path $stage 'payload\bin\routea_warp.addon64'
 $asi = Join-Path $stage 'payload\plugins\routea_hook.asi'
 $bi  = Join-Path $Root '..\..\demo_re\harness\routea_addon\_release\BUILD_INFO.txt'
 $lines = @(
-    "Frame Warp (Route A) -- release package",
+    "Reflex2 -- release package",
     "version : $version",
     "packed  : $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')",
     "addon   : $((Get-FileHash $dll -Algorithm SHA256).Hash)  ($((Get-Item $dll).Length) bytes)",
@@ -82,7 +82,7 @@ Get-ChildItem $stage -Recurse -File | Sort-Object FullName | ForEach-Object {
 
 # ---- 6) 压缩 ----------------------------------------------------------------------------------
 if (-not $NoZip) {
-    $zip = Join-Path $OutDir ("FrameWarp-RouteA-$version.zip")
+    $zip = Join-Path $OutDir ("Reflex2-$version.zip")
     if (Test-Path $zip) { Remove-Item $zip -Force }
     Add-Type -AssemblyName System.IO.Compression.FileSystem
     [System.IO.Compression.ZipFile]::CreateFromDirectory($stage, $zip)
