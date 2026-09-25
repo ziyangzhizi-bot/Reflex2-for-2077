@@ -100,7 +100,7 @@ Not affiliated with CD PROJEKT RED, NVIDIA or the ReShade project.
 
 ---
 
-## 变更:路径选项已移除(2026-09-25,用户决定)
+## 变更:路径选项已移除(2026-09-25)
 
 `Reflex2: which path`(UI first / Light first)这个组合框已从项目里删除:
 
