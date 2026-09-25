@@ -1,4 +1,4 @@
-# Frame Warp (Route A) — v0.9.0-rc1 发布说明 / Mod 页面文案
+﻿# Reflex2 — v0.9.0-rc1 发布说明 / Mod 页面文案
 
 > 可直接作为 mod 发布页正文(Nexus / GitHub Release 等)。技术细节见 `README_CN.md`、`CHANGELOG.md`、
 > `THIRD_PARTY_NOTICES.md`。
@@ -42,7 +42,7 @@
 
 1. 启动游戏,按 ReShade 面板热键(默认 `Home`)打开面板;
 2. 勾上 **`routea_ui_panel.fx`** —— 6 个中文滑块 + 5 个只读状态都在这里;
-3. 想临时关掉:去掉 `routea_switch.fx` 的 **"Route A: 帧扭曲"** 勾选(面板勾选现在等于**完全惰性**,
+3. 想临时关掉:去掉 `routea_switch.fx` 的 **"Reflex2: 帧扭曲"** 勾选(面板勾选现在等于**完全惰性**,
    不再只是"不扭"而已)。
 
 ## ⚠️ 最重要的一条:改分辨率不要直接回存档

@@ -1,4 +1,4 @@
-﻿# Reflex2 — Frame Warp for Cyberpunk 2077 via NVIDIA latewarp
+﻿# Reflex2 — Reflex2 for Cyberpunk 2077 via NVIDIA latewarp
 
 [中文说明](README_CN.md)
 

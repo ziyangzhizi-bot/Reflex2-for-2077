@@ -1,4 +1,4 @@
-﻿# install.ps1 -- Frame Warp (Route A) 一键安装 / 自检 / 卸载
+﻿# install.ps1 -- Reflex2 一键安装 / 自检 / 卸载
 #
 # 用法(在本目录下):
 #   .\install.ps1 -DryRun        # 只打印将要做什么,不动任何文件
@@ -173,12 +173,12 @@ if ($Uninstall) {
     }
     if ($latest) { Say "备份保留在: $($latest.FullName)(要恢复就把它里面的文件拷回去)" }
     Say '====================================='
-    Say '提示: 想彻底关闭扭曲但保留插件,把 ReShade 面板里 Route A: 帧扭曲 的勾去掉即可(不写任何文件)。'
+    Say '提示: 想彻底关闭扭曲但保留插件,把 ReShade 面板里 Reflex2: 帧扭曲 的勾去掉即可(不写任何文件)。'
     exit 0
 }
 
 Say ''
-Say '================ Frame Warp 安装 ================'
+Say '================ Reflex2 安装 ================'
 Say "来源: $Root"
 Say "目标: $G"
 Say "备份: $BackupRoot"
@@ -253,7 +253,7 @@ Say ''
 Say '-- 怎么用 --'
 Say '  1. 启动游戏,按 ReShade 面板热键(默认 Home)打开面板。'
 Say '  2. 在效果列表里勾上 routea_ui_panel.fx(中文滑块都在这里)。'
-Say '  3. 想临时关掉扭曲:把同目录 routea_switch.fx 的 Route A: 帧扭曲 勾去掉。'
+Say '  3. 想临时关掉扭曲:把同目录 routea_switch.fx 的 Reflex2: 帧扭曲 勾去掉。'
 Say '  4. 日志: bin\x64\routea_warp.log(自动轮转);崩溃取证: bin\x64\fwcrash_*.txt'
 Say ''
 if ($problems.Count -gt 0) { Warn ("自检有缺项: " + ($problems -join ', ') + " —— 插件会以加载但不动画面的方式运行") }
