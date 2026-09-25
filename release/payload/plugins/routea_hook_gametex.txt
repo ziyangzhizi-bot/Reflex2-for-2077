@@ -1,0 +1,1 @@
+Route A: bind the GAME's own HudlessColor (fallback Backbuffer), Depth and MotionVectors into our parameter object (Latewarp.HudlessColor / Latewarp.Backbuffer / Depth / MotionVectors + their Subrect groups + Output.Width/Height), read-only pointer binding only. Delete this file to go back to our seeded textures.

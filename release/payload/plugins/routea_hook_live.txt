@@ -1,0 +1,1 @@
+Route A: feed the game's live slSetConstants camera poses into the four Latewarp.*Matrix parameters (routea_hook.asi). Delete this file to go back to the frozen demo capture.

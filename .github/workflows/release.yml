@@ -1,0 +1,54 @@
+name: release
+
+# 说明:本仓库的插件是**在开发者机器上用 MSVC 构建的二进制**,这里不重新编译(没有 MSVC 环境),
+# 只做三件事:①检查包内没有禁品 ②校验哈希 ③把 release/ 打成 zip 并附到 Release。
+# 需要源码级可复现构建时,请在本地跑 release/build_release.cmd(带 /Brepro)。
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+jobs:
+  package:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 校验载荷哈希与 VERSION
+        shell: pwsh
+        run: |
+          $v = (Get-Content VERSION -Raw).Trim()
+          Write-Host "version = $v"
+          $dll = 'release/payload/bin/routea_warp.addon64'
+          if (-not (Test-Path $dll)) { throw "missing $dll" }
+          Write-Host ("addon sha256 = " + (Get-FileHash $dll -Algorithm SHA256).Hash)
+          Write-Host ("hook  sha256 = " + (Get-FileHash 'release/payload/plugins/routea_hook.asi' -Algorithm SHA256).Hash)
+          Get-ChildItem release/payload -Recurse -File | ForEach-Object { Write-Host ("  " + $_.FullName) }
+
+      - name: 禁品自检(不得含 _re / 竞品 / 转储 / 源码)
+        shell: pwsh
+        run: |
+          $bad = Get-ChildItem . -Recurse -File |
+            Where-Object { $_.FullName -notmatch '\\\.git\\' -and $_.Name -match 'optiscaler|framewarp-stage2|\.raw$|\.dmp$|routea_addon\.cpp' }
+          if ($bad) { $bad | ForEach-Object { Write-Host $_.FullName }; throw 'forbidden content found' }
+          Write-Host 'no forbidden content'
+
+      - name: 打包 release/
+        shell: pwsh
+        run: |
+          $v = (Get-Content VERSION -Raw).Trim()
+          Compress-Archive -Path release/* -DestinationPath "FrameWarp-RouteA-$v.zip" -Force
+          Get-Item "FrameWarp-RouteA-$v.zip" | Format-List Name,Length
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: FrameWarp-RouteA-package
+          path: FrameWarp-RouteA-*.zip
+
+      - name: 附加到 GitHub Release(仅 tag)
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: FrameWarp-RouteA-*.zip
+          body_path: release/RELEASE_NOTES_0.9.0-rc1.md

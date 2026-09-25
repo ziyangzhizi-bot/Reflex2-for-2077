@@ -1,0 +1,22 @@
+# 构建产物 / 本机文件
+_re/
+*.raw
+*.dmp
+*.zip
+_dist/
+*.pdb
+*.map
+*.obj
+*.exp
+*.lib
+*.log
+_fwbackup_*/
+routea_warp.addon64.prev_*
+_dev_switches/
+
+# 编辑器
+.vs/
+.vscode/
+*.user
+Thumbs.db
+desktop.ini
